@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+    
+    // Если число отрицательное — false (не палиндром)
+    if (x < 0) return false;
+    // Если число заканчивается на 0 — false (не палиндром)
+    if (x != 0 && x % 10 == 0) return false;
+
+    // Разворот только половины цифр
+    int N = 0;
+    while (x > N) {
+        N = N * 10 + x % 10;
+        x /= 10;
+    }
+
+    // Если число имеет чётное количество цифр: x = N
+    // Если нечётное: игнорируем среднюю цифру: x = N/10
+    return (x == N) || (x == N / 10);
+    }
+
+    int main() {
+        int x;
+        std::cin >> x;
+        std::cout << (isPalindrome(x) ? "true" : "false") << std::endl;
+        return 0;
+    }    
+};

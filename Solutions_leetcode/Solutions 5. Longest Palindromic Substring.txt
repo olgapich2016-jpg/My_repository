@@ -1,0 +1,53 @@
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = (int)s.size();
+    if (n <= 1) return s;
+
+    // Первая проверка: является ли вся строка палиндромом
+    bool wholeIsPal = true;
+    for (int i = 0, j = n - 1; i < j; ++i, --j) {
+        if (s[i] != s[j]) { wholeIsPal = false; break; }
+    }
+    if (wholeIsPal) return s;
+
+    int start = 0;   // начало длинного палиндрома
+    int maxLen = 1;  // его длина
+
+    for (int center = 0; center < n; ++center) {
+        
+        // Палиндром с центром в одном символе (нечётный)
+        int l = center, r = center;
+        while (l >= 0 && r < n && s[l] == s[r]) {
+            int len = r - l + 1;
+            if (len > maxLen) {
+                start = l;
+                maxLen = len;
+            }
+            --l; ++r;
+        }
+        // Палиндром с центром между двумя символами (чётный)
+        l = center;
+        r = center + 1;
+        while (l >= 0 && r < n && s[l] == s[r]) {
+            int len = r - l + 1;
+            if (len > maxLen) {
+                start = l;
+                maxLen = len;
+            }
+            --l; ++r;
+        }
+    }
+
+    return s.substr(start, maxLen);
+    }
+
+    int main() {
+        std::ios::sync_with_stdio(false);
+        std::cin.tie(nullptr);
+        std::string s;
+        std::cin >> s;
+        std::cout << longestPalindrome(s) << "\n";
+        return 0;    
+    }
+};

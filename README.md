@@ -9,16 +9,19 @@ Medium
 Далее выполняется проход по обоим спискам l1 и l2 по очереди, в каждом узле берутся цифры (если узла нет — то 0) и прибавляется перенос (переменная tr). Создается новый узел с суммой mod 10 и обновляется перенос как sum / 10. Данный цикл продолжается до тех пор, пока оба списка не дойдут до 0 и перенос станет 0. В результате, возвращается головной узел результата.
 
 
-[2. Add Two Numbers] https://leetcode.com/problems/add-two-numbers/description/
+[5. Longest Palindromic Substring] https://leetcode.com/problems/longest-palindromic-substring/
+Medium
+В начале алгоритма выполняется начале проверка, является ли вся строка палиндромом. Если да — возвращаем её сразу.
+Далее описана следующая логика работы: 
+
+
+
+[7. Reverse integer] https://leetcode.com/problems/reverse-integer/
 Medium
 
 
-
-[2. Add Two Numbers] https://leetcode.com/problems/add-two-numbers/description/
-Medium
-
-
-
+[9. Palindrome number] https://leetcode.com/problems/palindrome-number/
+Easy
 
 [46. Permutations] https://leetcode.com/problems/permutations/
 Medium
